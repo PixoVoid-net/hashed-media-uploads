@@ -9,9 +9,8 @@
  * Author URI: https://pixovoid.net/
  * License: MIT
  * License URI: https://opensource.org/licenses/MIT
- * Text Domain: hashed-media-uploads
+ * Text Domain: hashed-media-uploads.
  */
-
 if (!defined('ABSPATH')) {
     exit; // Prevent direct access.
 }
@@ -20,6 +19,7 @@ if (!defined('ABSPATH')) {
  * Securely rename uploaded file using a SHA-256 hash.
  *
  * @param array $file The uploaded file data.
+ *
  * @return array Modified file data with hashed name.
  */
 function pixovoid_hash_uploaded_filename($file)
@@ -38,7 +38,7 @@ function pixovoid_hash_uploaded_filename($file)
     $hashed_name = hash('sha256', random_bytes(32));
 
     // Construct the new filename
-    $file['name'] = $hashed_name . ($extension ? '.' . $extension : '');
+    $file['name'] = $hashed_name.($extension ? '.'.$extension : '');
 
     return $file;
 }
